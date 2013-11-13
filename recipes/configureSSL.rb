@@ -25,7 +25,7 @@ end
 
 execute "Configure SSL" do
  user "root" 
- command " /usr/java/jdk1.7.0_25/jre/bin/keytool -genkey -keyalg RSA -keysize 2048 -keystore /opt/novell/idm/rbpm/jboss/server/IDMProv/conf/rpbm.jks -storepass password -keypass password -alias rbpm -dname 'cn=darwin'" 
+ command " /usr/java/jdk1.7.0_25/jre/bin/keytool -genkey -keyalg RSA -keysize 2048 -keystore /opt/novell/idm/rbpm/jboss/server/IDMProv/conf/rpbm.jks -storepass password -keypass password -alias rbpm -dname 'cn=localhost'" 
   action :run
 end
 
