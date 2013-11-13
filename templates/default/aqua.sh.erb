@@ -1,0 +1,62 @@
+#/bin/sh
+
+/etc/init.d/jboss_init stop
+sleep 120
+UA_INSTALL_DIR=/opt/novell/idm/rbpm/UserApplication
+JBOSS_HOME_DIR=/opt/novell/idm/rbpm/jboss
+JBOSS_SERVER_DIR=/opt/novell/idm/rbpm/jboss/server/IDMProv
+
+DOWNLOAD_URL=http\://164.99.178.96/aquamarine/install/
+IP=`/sbin/ifconfig|grep inet|head -1|sed 's/\:/ /'|awk '{print $3}'`
+
+mkdir -p $UA_INSTALL_DIR/aqua-backup
+mv $UA_INSTALL_DIR/start-jboss.sh $UA_INSTALL_DIR/aqua-backup
+mv $UA_INSTALL_DIR/configupdate.sh $UA_INSTALL_DIR/aqua-backup
+mv $UA_INSTALL_DIR/ldapconfig_support.jar $UA_INSTALL_DIR/aqua-backup
+
+mv $JBOSS_HOME_DIR/common/lib/ejb3-persistence.jar $UA_INSTALL_DIR/aqua-backup
+mv $JBOSS_HOME_DIR/client/ejb3-persistence.jar $UA_INSTALL_DIR/aqua-backup
+
+mv $JBOSS_SERVER_DIR/deploy/IDMProv.war $UA_INSTALL_DIR/aqua-backup
+mv $JBOSS_SERVER_DIR/deploy/IDMRPT*.war $UA_INSTALL_DIR/aqua-backup
+mv $JBOSS_SERVER_DIR/conf/idmuserapp_logging.xml $UA_INSTALL_DIR/aqua-backup
+mv $JBOSS_SERVER_DIR/conf/jboss-log4j.xml  $UA_INSTALL_DIR/jboss-log4j.xml
+
+PWD=`pwd`
+export PWD
+
+echo "Creating a key store osp.jks"
+rm -rf /opt/novell/idm/rbpm/jboss/server/IDMProv/conf/osp.jks
+/usr/java/jdk1.7.0_25/jre/bin/keytool -genkey -keyalg RSA -keysize 2048 -keystore /opt/novell/idm/rbpm/jboss/server/IDMProv/conf/osp.jks -storepass password -keypass password -alias osp -dname 'cn=localhost'
+
+wget http://164.99.178.96/aquamarine/install/admin/ldapconfig_support.jar -P $UA_INSTALL_DIR
+
+wget http://164.99.178.96/aquamarine/install/admin/uaconfig-editor.jar -P $UA_INSTALL_DIR
+
+wget http://164.99.178.96/aquamarine/install/conf/aquamarine.conf -P $JBOSS_SERVER_DIR/conf
+
+wget http://164.99.178.96/aquamarine/install/conf/idmuserapp_logging.xml -P $JBOSS_SERVER_DIR/conf
+
+wget http://164.99.178.96/aquamarine/install/conf/jboss-log4j.xml -P $JBOSS_SERVER_DIR/conf
+
+wget http://164.99.178.96/aquamarine/install/conf/osp-conf.jar -P $JBOSS_SERVER_DIR/conf
+
+wget http://164.99.178.96/aquamarine/install/deploy/IDMProv.war -P $JBOSS_SERVER_DIR/deploy
+
+wget http://164.99.178.96/aquamarine/install/deploy/dash.war -P $JBOSS_SERVER_DIR/deploy
+
+wget http://164.99.178.96/aquamarine/install/deploy/landing.war -P $JBOSS_SERVER_DIR/deploy
+
+wget http://164.99.178.96/aquamarine/install/deploy/osp.war -P $JBOSS_SERVER_DIR/deploy
+
+wget http://164.99.178.96/aquamarine/install/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar -P $JBOSS_HOME_DIR/common/lib
+
+wget http://164.99.178.96/aquamarine/install/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar -P $JBOSS_HOME_DIR/client
+
+wget http://164.99.178.96/aquamarine/install/ua.zip -P $UA_INSTALL_DIR
+
+cd $UA_INSTALL_DIR; unzip $UA_INSTALL_DIR/ua.zip
+
+chmod 777 $UA_INSTALL_DIR/configupdate.sh  $UA_INSTALL_DIR/start-jboss.sh
+
+
