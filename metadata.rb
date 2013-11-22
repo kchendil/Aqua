@@ -1,4 +1,4 @@
-name             "jade"
+name             "aqua"
 maintainer       "Chendil Kumar Manoharan"
 maintainer_email "mkchendil@gmail.com"
 license          "Apache 2.0"
