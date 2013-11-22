@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: delimited
+# Cookbook Name:: aqua
 # Attributes:: default
 #
 # Copyright 2013, Chendil Kumar Manoharan
@@ -17,20 +17,19 @@
 # limitations under the License.
 
 
-default['delimited']['driver_shim_zip_url'] = "http://164.99.86.253/publish/Builds/IDM/dorado_sp2_patch3/Drivers/dirxml_flatfile/20130625/dirxmlflatfilefp.zip"
-default['delimited']['driver_name'] = "Delimited_Text_Driver"
-default['delimited']['ulimit'] = "4096"
-default['delimited']['admin_name']="admin.servers.system"
-default['delimited']['edirectory_port']="524"
-default['delimited']['idm_password']="n"
-default['delimited']['driverset']="driverset1.system"
-default['delimited']['driver_log_file']="/var/opt/novell/idm/delimited_configure.log"
-default['delimited']['driver_projectname']="IDM4_15"
-default['delimited']['jade_log_file']="/var/opt/novell/idm/delimited_entitlement.log"
-default['delimited']['jade_projectname']="IDM4_16"
-default['delimited']['driver_op_commands']="stop"
-default['delimited']['jade_extra_opencsv_url']="http://164.99.178.154/Jade_for_vagrant/opencsv-2.1.jar"
-default['delimited']['jade_extra_initidm_url']="http://164.99.178.154/Jade_for_vagrant/init-idm-resources.jar"
-default['delimited']['jade_base_pkg_url']="http://blr-builder.labs.blr.novell.com/artifacts/designer_updatesite2/4.0/Publish2/plugins/NOVLDTXTBASE_2.1.0.20130801170531.jar"
-default['delimited']['jade_entit_pkg_url']="http://blr-builder.labs.blr.novell.com/artifacts/designer_updatesite2/4.0/Publish2/plugins/NOVLDTXTENT_2.1.0.20130801170845.jar"
-default['delimited']['jade_adv_driverset_pkg_url']="http://blr-builder.labs.blr.novell.com/artifacts/designer_updatesite2/4.0/Publish2/plugins/NOVLACOMSET_2.1.0.20130702145909.jar"
+default['aqua']['IDMProv_url'] = "http://164.99.178.96/aquamarine/install/deploy/IDMProv.war"
+default['aqua']['IDMRPT_url'] = "http://164.99.178.96/aquamarine/install/deploy/IDMRPT.war"
+default['aqua']['IDMRPT-CORE_url'] = "http://164.99.178.96/aquamarine/install/deploy/IDMRPT-CORE.war"
+default['aqua']['IDMRPT-AUTH_url'] = "http://164.99.178.96/aquamarine/install/deploy/IDMRPT-AUTH.war"
+default['aqua']['Dash'] = "http://164.99.178.96/aquamarine/install/deploy/dash.war"
+default['aqua']['Landing'] = "http://164.99.178.96/aquamarine/install/deploy/landing.war"
+default['aqua']['osp'] = "http://164.99.178.96/aquamarine/install/deploy/osp.war"
+default['aqua']['hibernate'] = "http://164.99.178.96/aquamarine/install/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"
+default['aqua']['ua'] = "http://164.99.178.96/aquamarine/install/ua.zip"
+default['aqua']['osp-conf'] = "http://164.99.178.96/aquamarine/install/conf/osp-conf.jar"
+default['aqua']['jboss-log4j'] = "http://164.99.178.96/aquamarine/install/conf/jboss-log4j.xml"
+default['aqua']['idmuserapp_logging'] = "http://164.99.178.96/aquamarine/install/conf/idmuserapp_logging.xml"
+default['aqua']['aquamarine-conf'] = "http://164.99.178.96/aquamarine/install/conf/aquamarine.conf"
+default['aqua']['uaconfig-editor'] = "http://164.99.178.96/aquamarine/install/admin/uaconfig-editor.jar"
+default['aqua']['ldapconfig_support'] = "http://164.99.178.96/aquamarine/install/admin/ldapconfig_support.jar"
+
