@@ -31,35 +31,35 @@ rm -rf /opt/novell/idm/rbpm/jboss/server/IDMProv/conf/osp.jks
 
 wget <%= node["aqua"]["ldapconfig_support"] %> -P $UA_INSTALL_DIR
 
-wget <%= node["aqua"]["uaconfig-editor"] -P $UA_INSTALL_DIR
+wget <%= node["aqua"]["uaconfig-editor"] %>-P $UA_INSTALL_DIR
 
-wget <%= node["aqua"]["aquamarine-conf"]  -P $JBOSS_SERVER_DIR/conf
+wget <%= node["aqua"]["aquamarine-conf"] %> -P $JBOSS_SERVER_DIR/conf
 
-wget <%= node["aqua"]["idmuserapp_logging"] -P $JBOSS_SERVER_DIR/conf
+wget <%= node["aqua"]["idmuserapp_logging"] %>-P $JBOSS_SERVER_DIR/conf
 
-wget <%= node["aqua"]["jboss-log4j"] -P $JBOSS_SERVER_DIR/conf
+wget <%= node["aqua"]["jboss-log4j"] %> -P $JBOSS_SERVER_DIR/conf
 
-wget <%= node["aqua"]["osp-conf"] -P $JBOSS_SERVER_DIR/conf
+wget <%= node["aqua"]["osp-conf"] %> -P $JBOSS_SERVER_DIR/conf
 
-wget <%= node["aqua"]["IDMProv_url"] -P $JBOSS_SERVER_DIR/deploy
+wget <%= node["aqua"]["IDMProv_url"] %> -P $JBOSS_SERVER_DIR/deploy
 
-#wget <%= node["aqua"]["IDMRPT_url"] -P $JBOSS_SERVER_DIR/deploy
+#wget <%= node["aqua"]["IDMRPT_url"] %> -P $JBOSS_SERVER_DIR/deploy
 
-#wget <%= node["aqua"]["IDMRPT-CORE_url"] -P $JBOSS_SERVER_DIR/deploy
+#wget <%= node["aqua"]["IDMRPT-CORE_url"] %> -P $JBOSS_SERVER_DIR/deploy
 
-#wget <%= node["aqua"]["IDMRPT-AUTH_url"] -P $JBOSS_SERVER_DIR/deploy
+#wget <%= node["aqua"]["IDMRPT-AUTH_url"] %> -P $JBOSS_SERVER_DIR/deploy
 
-wget <%= node["aqua"]["Dash"]  -P $JBOSS_SERVER_DIR/deploy
+wget <%= node["aqua"]["Dash"] %>  -P $JBOSS_SERVER_DIR/deploy
 
-wget <%= node["aqua"]["Landing"] -P $JBOSS_SERVER_DIR/deploy
+wget <%= node["aqua"]["Landing"] %>-P $JBOSS_SERVER_DIR/deploy
 
-wget <%= node["aqua"]["osp"] -P $JBOSS_SERVER_DIR/deploy
+wget <%= node["aqua"]["osp"] %> -P $JBOSS_SERVER_DIR/deploy
 
-wget <%= node["aqua"]["hibernate"] -P $JBOSS_HOME_DIR/common/lib
+wget <%= node["aqua"]["hibernate"] %> -P $JBOSS_HOME_DIR/common/lib
 
-wget <%= node["aqua"]["hibernate"] -P $JBOSS_HOME_DIR/client
+wget <%= node["aqua"]["hibernate"] %> -P $JBOSS_HOME_DIR/client
 
-wget <%= node["aqua"]["ua"] -P $UA_INSTALL_DIR
+wget <%= node["aqua"]["ua"] %> -P $UA_INSTALL_DIR
 
 cd $UA_INSTALL_DIR; unzip $UA_INSTALL_DIR/ua.zip
 

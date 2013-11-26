@@ -1,6 +1,6 @@
 {
   "name": "aqua",
-  "description": "Installs and Configures latest Apache Tomcat 6 or 7",
+  "description": "Installs and Configures latest Aquamaine build",
   "long_description": "Description\n===========\n\nInstalls and configures latest Apache Tomcat version 6 or 7 or specified version",
   "maintainer": "Chendil Kumar Manoharan",
   "maintainer_email": "mkchendil@gmail.com",
@@ -27,7 +27,7 @@
   "groupings": {
   },
   "recipes": {
-    "tomcat::default": "Installs and Configures latest Apache Tomcat 6 or 7 or specified version"
+    "tomcat::default": "Installs and Configures latest Aquamaine build"
   },
-  "version": "0.1.9"
+  "version": "0.1.10"
 }
