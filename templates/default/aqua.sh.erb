@@ -31,11 +31,11 @@ rm -rf /opt/novell/idm/rbpm/jboss/server/IDMProv/conf/osp.jks
 
 wget <%= node["aqua"]["ldapconfig_support"] %> -P $UA_INSTALL_DIR
 
-wget <%= node["aqua"]["uaconfig-editor"] %>-P $UA_INSTALL_DIR
+wget <%= node["aqua"]["uaconfig-editor"] %> -P $UA_INSTALL_DIR
 
 wget <%= node["aqua"]["aquamarine-conf"] %> -P $JBOSS_SERVER_DIR/conf
 
-wget <%= node["aqua"]["idmuserapp_logging"] %>-P $JBOSS_SERVER_DIR/conf
+wget <%= node["aqua"]["idmuserapp_logging"] %> -P $JBOSS_SERVER_DIR/conf
 
 wget <%= node["aqua"]["jboss-log4j"] %> -P $JBOSS_SERVER_DIR/conf
 
@@ -49,9 +49,9 @@ wget <%= node["aqua"]["IDMProv_url"] %> -P $JBOSS_SERVER_DIR/deploy
 
 #wget <%= node["aqua"]["IDMRPT-AUTH_url"] %> -P $JBOSS_SERVER_DIR/deploy
 
-wget <%= node["aqua"]["Dash"] %>  -P $JBOSS_SERVER_DIR/deploy
+wget <%= node["aqua"]["Dash"] %> -P $JBOSS_SERVER_DIR/deploy
 
-wget <%= node["aqua"]["Landing"] %>-P $JBOSS_SERVER_DIR/deploy
+wget <%= node["aqua"]["Landing"] %> -P $JBOSS_SERVER_DIR/deploy
 
 wget <%= node["aqua"]["osp"] %> -P $JBOSS_SERVER_DIR/deploy
 
