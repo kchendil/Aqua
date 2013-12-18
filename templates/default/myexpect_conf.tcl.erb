@@ -1,0 +1,302 @@
+spawn /opt/novell/idm/rbpm/UserApplication/configupdate.sh -use_console true
+
+set timeout 1800
+expect "]"
+send "1\r"
+expect "]"
+send "127.0.0.1\r"
+expect "]"
+send "389\r"
+expect "]"
+send "636\r"
+expect "]"
+send "cn=admin,ou=servers,o=system\n"
+expect "]"
+send "novell123$\r"
+expect "]"
+send "/usr/java/jdk1.7.0_25/jre/lib/security/cacerts\r"
+
+#keystore password
+expect "]"
+send "\r"
+
+
+#Secure Admin connection
+expect "]"
+send "true\r"
+
+
+#Secure User connection
+expect "]"
+send "true\r"
+
+#Secure RBPM Context Name
+expect "]"
+send "\r"
+
+#Use External Password
+expect "]"
+send "\r"
+
+#Forgot Password Link
+expect "]"
+send "\r"
+
+#Forgot Password WebService Link
+expect "]"
+send "\r"
+
+#Forgot Password Return Link
+expect "]"
+send "\r"
+
+
+#Use Public Anonymous Account
+expect "]"
+send "\r"
+
+#root container DN
+expect "]"
+send "o=data\r"
+
+#Group container DN
+expect "]"
+send "o=data\r"
+
+
+#User Application Administrator
+expect "]"
+send "cn=uaadmin,ou=sa,o=data\r"
+
+
+#User Application Driver
+expect "]"
+send "cn=UserApplication,cn=driverset1,o=system\r"
+
+#Driver Set Root
+expect "]"
+send "cn=driverset1,o=system\r"
+
+#Roles Administrator
+expect "]"
+send "cn=uaadmin,ou=sa,o=data\r"
+
+
+#Provisioning Administrator
+expect "]"
+send "cn=uaadmin,ou=sa,o=data\r"
+
+#Compliance Administrator
+expect "]"
+send "cn=uaadmin,ou=sa,o=data\r"
+
+
+#Resources Administrator
+expect "]"
+send "cn=uaadmin,ou=sa,o=data\r"
+
+
+#RBPM Configuration Administrator
+expect "]"
+send "cn=uaadmin,ou=sa,o=data\r"
+
+#User Container DN
+
+expect "]"
+send "o=data\r"
+
+
+#RBPM Reporting Administrator
+expect "]"
+send "cn=uaadmin,ou=sa,o=data\r"
+
+
+#Security Administrator
+expect "]"
+send "cn=uaadmin,ou=sa,o=data\r"
+
+
+#Notification Template Host
+expect "]"
+send "\r"
+
+
+#Notification Template Port
+expect "]"
+send "\r"
+
+#Notification Template Secure Port
+expect "]"
+send "\r"
+
+#Notification SMTP Email From
+expect "]"
+send "\r"
+
+#SMTP Server Name
+expect "]"
+send "\r"
+
+#OAuth server's auth endpoint
+expect "]"
+send "http://<%= node["aqua"]["osp-ip"] %>:8180/osp/a/idm/auth/oauth2/grant\r"
+
+#OAuth server's token endpoint
+expect "]"
+send "http://<%= node["aqua"]["osp-ip"] %>:8180/osp/a/idm/auth/oauth2/getattributes\r"
+
+#OAuth server's logout endpoint
+expect "]"
+send "http://<%= node["aqua"]["osp-ip"] %>:8180/osp/a/idm/auth/app/logout\r"
+
+#LDAP DN of Admins Container
+expect "]"
+send "ou=sa,o=data\r"
+
+#OAuth keystore file
+expect "]"
+send "/opt/novell/idm/rbpm/jboss/server/IDMProv/conf/osp.jks\r"
+
+
+#OAuth keystore file password
+expect "]"
+send "password\r"
+
+#Key alias of key for use by OAuth
+expect "]"
+send "osp\r"
+
+#Key password of key for use by OAuth
+expect "]"
+send "password\r"
+
+#OAuth client ID
+expect "]"
+send "ualanding\r"
+
+#OAuth client secret
+expect "]"
+send "\r"
+
+#URL link to dash page
+expect "]"
+send "\r"
+
+#OSP Oauth redirect url
+expect "]"
+send "http://<%= node["aqua"]["osp-ip"] %>:8180/landing/com.netiq.ualanding.index/oauth.html\r"
+
+
+#OAuth client ID
+expect "]"
+send "uadash\r"
+
+#OAuth client secret
+expect "]"
+send "\r"
+
+#URL link to dash page
+expect "]"
+send "\r"
+
+#OSP Oauth redirect url
+expect "]"
+send "http://<%= node["aqua"]["osp-ip"] %>:8180/dash/com.netiq.uadash.index/oauth.html\r"
+
+#User email
+expect "]"
+send "\r"
+
+#User TelephoneNumber
+expect "]"
+send "\r"
+
+#User MoblieNumber
+expect "]"
+send "\r"
+
+#User FirstName
+expect "]"
+send "\r"
+
+#User Location
+expect "]"
+send "\r"
+
+#User Department
+expect "]"
+send "\r"
+
+#User LastName
+expect "]"
+send "\r"
+
+#User Title
+expect "]"
+send "\r"
+
+#OAuth client ID
+expect "]"
+send "rbpm\r"
+
+#OAuth client secret
+expect "]"
+send "\r"
+
+#URL link to landing page
+expect "]"
+send "\r"
+
+#OSP Oauth redirect url
+expect "]"
+send "http://<%= node["aqua"]["osp-ip"] %>:8180/IDMProv/oauth\r"
+
+
+#OAuth client ID
+expect "]"
+send "rpt\r"
+
+#OAuth client secret
+expect "]"
+send "\r"
+
+#URL link to dash page
+expect "]"
+send "\r"
+
+#OSP Oauth redirect url
+expect "]"
+send "http://<%= node["aqua"]["osp-ip"] %>:8180/IDMRPT/oauth.html\r"
+
+#OAuth client ID
+expect "]"
+send "dcsdrv\r"
+
+#OAuth client secret
+expect "]"
+send "\r"
+
+#OAuth client ID
+expect "]"
+send "rra\r"
+
+#OAuth client secrent
+expect "]"
+send "\r"
+
+#URL link to dash page
+expect "]"
+send "\r"
+
+#OSP Oauth redirect url
+expect "]"
+send "http://<%= node["aqua"]["osp-ip"] %>:8180/rra/com.netiq.rra.index/oauth.html\r"
+
+#Response Types
+expect "]"
+send "\r"
+
+#Save Configuration
+expect "]"
+send "1\r"
+expect eof

@@ -17,8 +17,17 @@ mv $UA_INSTALL_DIR/ldapconfig_support.jar $UA_INSTALL_DIR/aqua-backup
 mv $JBOSS_HOME_DIR/common/lib/ejb3-persistence.jar $UA_INSTALL_DIR/aqua-backup
 mv $JBOSS_HOME_DIR/client/ejb3-persistence.jar $UA_INSTALL_DIR/aqua-backup
 
+# mv $JBOSS_HOME_DIR/conf/idmrptauth_logging.xml $UA_INSTALL_DIR/aqua-backup
+# mv $JBOSS_HOME_DIR/conf/idmrptclient_logging.xml $UA_INSTALL_DIR/aqua-backup
+# mv $JBOSS_HOME_DIR/conf/idmrptcore_logging.xml $UA_INSTALL_DIR/aqua-backup
+
+mv /opt/novell/idm/rbpm/jboss/server/IDMProv/conf/idmrptauth_logging.xml /tmp/
+mv /opt/novell/idm/rbpm/jboss/server/IDMProv/conf/idmrptclient_logging.xml /tmp/
+mv /opt/novell/idm/rbpm/jboss/server/IDMProv/conf/idmrptcore_logging.xml /tmp/
+
 mv $JBOSS_SERVER_DIR/deploy/IDMProv.war $UA_INSTALL_DIR/aqua-backup
 mv $JBOSS_SERVER_DIR/deploy/IDMRPT*.war $UA_INSTALL_DIR/aqua-backup
+mv $JBOSS_SERVER_DIR/deploy/eas*.war $UA_INSTALL_DIR/aqua-backup
 mv $JBOSS_SERVER_DIR/conf/idmuserapp_logging.xml $UA_INSTALL_DIR/aqua-backup
 mv $JBOSS_SERVER_DIR/conf/jboss-log4j.xml  $UA_INSTALL_DIR/jboss-log4j.xml
 
@@ -35,6 +44,16 @@ wget <%= node["aqua"]["uaconfig-editor"] %> -P $UA_INSTALL_DIR
 
 wget <%= node["aqua"]["aquamarine-conf"] %> -P $JBOSS_SERVER_DIR/conf
 
+wget http://164.99.178.154/chendil/idm_report_logging/idmrptauth_logging.xml -P $JBOSS_SERVER_DIR/conf
+
+wget http://164.99.178.154/chendil/idm_report_logging/idmrptclient_logging.xml -P $JBOSS_SERVER_DIR/conf
+
+wget http://164.99.178.154/chendil/idm_report_logging/idmrptcore_logging.xml -P $JBOSS_SERVER_DIR/conf
+
+wget http://164.99.178.96/aquamarine/install/deploy/easrestapi.war -P $JBOSS_SERVER_DIR/deploy
+
+wget http://164.99.178.96/aquamarine/install/deploy/easwebstart.war -P $JBOSS_SERVER_DIR/deploy
+
 wget <%= node["aqua"]["idmuserapp_logging"] %> -P $JBOSS_SERVER_DIR/conf
 
 wget <%= node["aqua"]["jboss-log4j"] %> -P $JBOSS_SERVER_DIR/conf
@@ -43,15 +62,15 @@ wget <%= node["aqua"]["osp-conf"] %> -P $JBOSS_SERVER_DIR/conf
 
 wget <%= node["aqua"]["IDMProv_url"] %> -P $JBOSS_SERVER_DIR/deploy
 
-#wget <%= node["aqua"]["IDMRPT_url"] %> -P $JBOSS_SERVER_DIR/deploy
+wget <%= node["aqua"]["IDMRPT_url"] %> -P $JBOSS_SERVER_DIR/deploy
 
-#wget <%= node["aqua"]["IDMRPT-CORE_url"] %> -P $JBOSS_SERVER_DIR/deploy
+wget <%= node["aqua"]["IDMRPT-CORE_url"] %> -P $JBOSS_SERVER_DIR/deploy
 
-#wget <%= node["aqua"]["IDMRPT-AUTH_url"] %> -P $JBOSS_SERVER_DIR/deploy
+wget <%= node["aqua"]["IDMRPT-AUTH_url"] %> -P $JBOSS_SERVER_DIR/deploy
 
-wget <%= node["aqua"]["Dash"] %> -P $JBOSS_SERVER_DIR/deploy
+wget <%= node["aqua"]["Dash"] %> -O $JBOSS_SERVER_DIR/deploy/dash.war
 
-wget <%= node["aqua"]["Landing"] %> -P $JBOSS_SERVER_DIR/deploy
+wget <%= node["aqua"]["Landing"] %> -O $JBOSS_SERVER_DIR/deploy/landing.war
 
 wget <%= node["aqua"]["osp"] %> -P $JBOSS_SERVER_DIR/deploy
 
@@ -62,6 +81,14 @@ wget <%= node["aqua"]["hibernate"] %> -P $JBOSS_HOME_DIR/client
 wget <%= node["aqua"]["ua"] %> -P $UA_INSTALL_DIR
 
 cd $UA_INSTALL_DIR; unzip $UA_INSTALL_DIR/ua.zip
+
+mkdir /tmp/osp-schema; cd /tmp/osp-schema/; 
+
+wget http://164.99.178.96/aquamarine/install/conf/osp-sch.zip -O /tmp/osp-schema/osp-sch.zip; 
+
+cd /tmp/osp-schema/; unzip /tmp/osp-schema/osp-sch.zip;
+
+ndssch -h localhost admin.servers.system -p novell123$ osp.sch;
 
 chmod 777 $UA_INSTALL_DIR/configupdate.sh  $UA_INSTALL_DIR/start-jboss.sh
 

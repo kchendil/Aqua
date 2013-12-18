@@ -24,6 +24,7 @@ default['aqua']['IDMRPT-AUTH_url'] = "http://164.99.178.96/aquamarine/install/de
 default['aqua']['Dash'] = "http://164.99.178.96/aquamarine/install/deploy/dash.war"
 default['aqua']['Landing'] = "http://164.99.178.96/aquamarine/install/deploy/landing.war"
 default['aqua']['osp'] = "http://164.99.178.96/aquamarine/install/deploy/osp.war"
+default['aqua']['osp-ip'] = "localhost"
 default['aqua']['hibernate'] = "http://164.99.178.96/aquamarine/install/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"
 default['aqua']['ua'] = "http://164.99.178.96/aquamarine/install/ua.zip"
 default['aqua']['osp-conf'] = "http://164.99.178.96/aquamarine/install/conf/osp-conf.jar"
